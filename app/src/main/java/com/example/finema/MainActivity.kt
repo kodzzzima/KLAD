@@ -3,6 +3,7 @@ package com.example.finema
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.finema.databinding.ActivityMainBinding
+import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.topAppBar.setNavigationOnClickListener {
             binding.drawerLayout.open()
