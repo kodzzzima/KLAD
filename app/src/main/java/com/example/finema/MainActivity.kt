@@ -2,8 +2,8 @@ package com.example.finema
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.Navigation
 import com.example.finema.databinding.ActivityMainBinding
-import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,9 +15,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.topAppBar.setNavigationOnClickListener {
             binding.drawerLayout.open()
+        }
+
+        binding.navView.setNavigationItemSelectedListener {
+            binding.drawerLayout.close()
+
+            when (it.itemId){
+                R.id.tournament -> Navigation.findNavController(this, R.id.fragment)
+                    .navigate(R.id.action_global_fragmentTmp)
+
+                R.id.settings -> Navigation.findNavController(this, R.id.fragment)
+                    .navigate(R.id.action_global_fragmentSettings)
+
+            }
+
+            true
         }
     }
 }

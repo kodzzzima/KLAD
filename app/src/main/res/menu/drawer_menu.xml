@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
 
-        <item android:id="@+id/fragment1"
-            android:title="Fragment 1"/>
+    <item
+        android:id="@+id/tournament"
+        android:title="Выбери лучший фильм"
+        android:icon="@drawable/outline_star_24" />
 
-        <item android:id="@+id/fragment2"
-            android:title="Fragment 2"/>
+    <item
+        android:id="@+id/lovely"
+        android:title="Избранные фильмы" />
 
-        <item android:id="@+id/fragment3"
-            android:title="Fragment 3"/>
+    <item
+        android:id="@+id/settings"
+        android:title="Настройки"
+        />
 
-    </group>
+    <item
+        android:id="@+id/game"
+        android:title="Игра больше/меньше">
+        <menu>
+            <item
+                android:id="@+id/budget"
+                android:title="Бюджет" />
+            <item
+                android:id="@+id/rating"
+                android:title="Рейтинг"/>
+        </menu>
+    </item>
+
+
+
+
 
 </menu>
