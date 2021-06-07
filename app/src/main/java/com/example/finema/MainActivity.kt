@@ -103,16 +103,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkIfUserInited() {
         if (!AppPreference.getInitUser()) {
-            initDatabase(TYPE_ROOM) {
-                toSignInFragment()
-            }
+            toSignInFragment()
         } else {
-            initDatabase(TYPE_ROOM) {
-                if (FirebaseAuth.getInstance().currentUser?.displayName == null) {
-                    setPhotoAndNameGuest()
-                } else {
-                    setPhotoAndNameUser()
-                }
+            if (FirebaseAuth.getInstance().currentUser?.displayName == null) {
+                setPhotoAndNameGuest()
+            } else {
+                setPhotoAndNameUser()
             }
         }
     }
@@ -182,14 +178,6 @@ class MainActivity : AppCompatActivity() {
     private fun toSignInFragment() {
         findNavController(R.id.fragment)
             .navigate(R.id.action_global_signIn)
-    }
-
-    private fun initDatabase(type: String, onSuccess: () -> Unit) {
-        when (type) {
-            TYPE_ROOM -> {
-                onSuccess()
-            }
-        }
     }
 
     companion object {
